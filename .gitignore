@@ -1,0 +1,14 @@
+# Cache, temp and personal files
+
+*.log
+
+# Upload
+/logs/*
+
+# Upload
+/files/*
+!/files/index.php
+!/files/.htaccess
+
+/vendor/*
+/composer.lock

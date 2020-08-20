@@ -1,0 +1,57 @@
+<?php
+
+namespace LkEbp\Models;
+
+/**
+ *  Copyright (C) Lk Interactive - All Rights Reserved.
+ *
+ *  This is proprietary software therefore it cannot be distributed or reselled.
+ *  Unauthorized copying of this file, via any medium is strictly prohibited.
+ *  Proprietary and confidential.
+ *
+ * @author    Lk Interactive <contact@lk-interactive.fr>
+ * @copyright 2020.
+ * @license   Commercial license
+ */
+
+class LkEbpTax extends \ObjectModel
+{
+    /** @var int id_ebp_tax */
+    public $id_ebp_tax;
+
+    /** @var int id product */
+    public $id_product;
+
+    /** @var string Object creation date */
+    public $date_add;
+
+    /** @var string Object creation date */
+    public $date_upd;
+
+    public static $definition = array(
+        'table' => 'lk_ebp_tax',
+        'primary' => 'id_ebp_tax',
+        'multilang' => false,
+        'multilang_shop' => false,
+        'fields' => array(
+            'id_product' => array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId'),
+            'date_add' => array('type' => self::TYPE_DATE, 'shop' => true, 'validate' => 'isDate'),
+            'date_upd' => array('type' => self::TYPE_DATE, 'shop' => true, 'validate' => 'isDate'),
+        )
+    );
+
+
+    /**
+     * Add new tax on marge
+     *
+     * @param array $id_product
+     * @throws \PrestaShopDatabaseException
+     * @throws \PrestaShopException
+     * @since 1.0.0
+     */
+    public function addNewTax($id_product)
+    {
+        $this->id_product = $id_product;
+        $this->add();
+    }
+}

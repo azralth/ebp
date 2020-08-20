@@ -1,0 +1,27 @@
+{
+  "name": "dev/lkebp",
+  "description": "A bridge connector from EBP CRM to Prestashop CMS",
+  "type": "Prestashop module",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Lk interactive",
+      "email": "francois@lk-interactive.fr"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "LkEbp\\": "app/"
+    }
+  },
+  "require": {
+    "shuchkin/simplexlsx": "^0.8.18"
+  },
+  "config": {
+    "prepend-autoloader": false
+  },
+  "type": "prestashop-module",
+  "require-dev": {
+    "prestashop/autoindex": "^1.0"
+  }
+}
